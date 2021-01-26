@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Contats</title>
+</head>
+<body>
+  <div layout:fragment="content1">
+      <div class="col-md-6">
+          <form method="post" th:action="@{saveContrat}">
+              <div class="form-group">
+                  <label>ID</label>
+                  <input name="id" class="form-control" type="text" th:value="${contrat.id}">
+              </div>
+              <div class="form-group">
+                  <label>Titre</label>
+                  <input name="title" class="form-control" type="text" th:value="${contrat.title}">
+                  <span th:errors="${contrat.title}" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                  <label>Date</label>
+                  <input name="date" class="form-control" type="date" th:value="${contrat.date}">
+                  <span th:errors="${contrat.date}" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                  <label>Montant</label>
+                  <input name="montant" class="form-control" type="text" th:value="${contrat.montant}">
+                  <span th:errors="${contrat.montant}" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                  <label>Client</label>
+                  <input name="client" class="form-control" type="text" th:value="${contrat.client}">
+                  <span th:errors="${contrat.client}" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                  <label>Cloture</label>
+                  <input name="cloture" type="checkbox" th:cheked="${contrat.cloture}">
+                  <span th:errors="${contrat.cloture}" class="text-danger"></span>
+              </div>
+              <button class="btn btn-success" type="submit">Update</button>
+          </form>
+      </div>
+  </div>
+</body>
+</html>
